@@ -44,9 +44,9 @@ export default () => {
   const [maskOpened, setMaskOpened] = useState(false);
   const [drawerVisible, setDrawerVisible] = useState(false);
   const [template, setTemplate] = useState(defaultHome);
-  const [isBaidu, setIsBaidu] = useState(true);
+  const [isBaidu, setIsBaidu] = useState(false);
   // 开启万能搜索
-  const currentSearchAll = localStorage.getItem(SEARCH_ALL_OPEN) ? JSON.parse(localStorage.getItem(SEARCH_ALL_OPEN)) : true;
+  const currentSearchAll = localStorage.getItem(SEARCH_ALL_OPEN) ? JSON.parse(localStorage.getItem(SEARCH_ALL_OPEN)) : false;
   const [searchAll, setSearchAll] = useState(currentSearchAll);
   // 当前封面
   const currentCover = localStorage.getItem(CURRENT_COVER) ? JSON.parse(localStorage.getItem(CURRENT_COVER)) : DEFAULT_COVER;
@@ -111,7 +111,7 @@ export default () => {
   };
 
   const renderViewByTabKey = template.keyContentMap[tabKey].map((resource, index) =>
-    <a href={resource.link} target="_blank" key={index}>
+    <a href={resource.link} target="_blank" key={index} rel="noreferrer">
       <Card.Grid style={gridStyle}>
         <Avatar shape="square" src={resource.icon} />
         <div className="resource-name">{resource.name}</div>
@@ -121,7 +121,7 @@ export default () => {
 
   const drawerTitle = (
     <div className="drawer-title">
-      <a href={WEB_HOST} target="_blank">
+      <a href={WEB_HOST} target="_blank" rel="noreferrer">
         <Avatar src={logo} shape="square" style={{marginRight: 12}} />
         <span className="site-title">编程导航</span>
       </a>
@@ -195,11 +195,11 @@ export default () => {
                   style={{marginLeft: 8}}
                   onClick={() => setDrawerVisible(true)} />
         </Tooltip>
-        <Tooltip title="项目详情">
+        {/* <Tooltip title="项目详情">
           <Button type={ghostClose ? 'primary' : 'ghost'} size="small" shape="round" icon={<GithubOutlined />}
                   style={{marginLeft: 8}}
                   onClick={() => window.open(PROJECT_GITHUB)} />
-        </Tooltip>
+        </Tooltip> */}
       </div>
       <Drawer
         title={drawerTitle}

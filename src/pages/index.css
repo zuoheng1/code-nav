@@ -16,7 +16,13 @@ body {
   border-radius: 5px;
   overflow: hidden;
 }
-
+.card {
+  display: flex;
+  flex-wrap: wrap;
+}
+.cardlink {
+  width: 25%;
+}
 .card .ant-card-body {
   padding: 0 !important;
 }
@@ -38,11 +44,13 @@ body {
   border-radius: 5px;
 }
 
-.search-all-switch.close, .search-all-switch:hover {
+.search-all-switch.close,
+.search-all-switch:hover {
   filter: grayscale(1);
 }
 
-.search-all-switch, .search-all-switch.close:hover {
+.search-all-switch,
+.search-all-switch.close:hover {
   filter: none;
 }
 
@@ -79,7 +87,8 @@ body {
   border-bottom-left-radius: 5px !important;
 }
 
-.search .ant-input-group-addon, .search .ant-input-search-button {
+.search .ant-input-group-addon,
+.search .ant-input-search-button {
   border-top-right-radius: 5px !important;
   border-bottom-right-radius: 5px !important;
 }
@@ -133,7 +142,8 @@ body {
   line-height: 24px !important;
 }
 
-.ant-drawer-close:focus, .ant-drawer-close:hover {
+.ant-drawer-close:focus,
+.ant-drawer-close:hover {
   color: #1890ff !important;
 }
 

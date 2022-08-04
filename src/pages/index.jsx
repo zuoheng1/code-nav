@@ -25,11 +25,12 @@ const listGrid = {
 };
 
 const gridStyle = {
-  width: '25%',
+  width: '100%',
   textAlign: 'center',
   fontSize: '13px',
   color: '#555',
 };
+
 
 const localStorage = window.localStorage;
 
@@ -111,12 +112,15 @@ export default () => {
   };
 
   const renderViewByTabKey = template.keyContentMap[tabKey].map((resource, index) =>
-    <a href={resource.link} target="_blank" key={index} rel="noreferrer">
+  <div className='cardlink'>
+  <a href={resource.link} target="_blank" key={index} rel="noreferrer">
       <Card.Grid style={gridStyle}>
         <Avatar shape="square" src={resource.icon} />
         <div className="resource-name">{resource.name}</div>
       </Card.Grid>
     </a>
+  </div>
+
   )
 
   const drawerTitle = (
@@ -178,9 +182,9 @@ export default () => {
       <div className={'card-wrapper' + (maskOpened ? ' hidden' : '')}>
         {
           template.keyList.length > 0 &&
-          <Card className="card" bordered={false}>
+          <div className="card">
             {renderViewByTabKey}
-          </Card>
+          </div>
         }
       </div>
       <div className="fix-group">
@@ -202,7 +206,7 @@ export default () => {
         </Tooltip> */}
       </div>
       <Drawer
-        title={drawerTitle}
+        // title={drawerTitle}
         placement="top"
         closable={true}
         height={document.body.clientHeight}

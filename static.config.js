@@ -28,6 +28,10 @@ export default {
       {
         path: 'search',
         template: 'src/pages/search/index',
+      },
+      {
+        path:'xiongZ',
+        template: 'src/pages/xiongZ/index',
       }
     ]
   },
